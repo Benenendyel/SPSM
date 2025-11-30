@@ -28,11 +28,15 @@ const server = http.createServer(function (req, res) {
     req.url.startsWith("/js/")
   ) {
     filePath = "./public" + req.url;
+  } else if (req.url.startsWith("/node_modules/")) {
+    // Serve node_modules files
+    filePath = "." + req.url; // e.g., /node_modules/some-lib/somefile.js
+    console.log("Serving from node_modules:", filePath);
   } else if (req.url === "/") {
     filePath = "./public/index.html";
   } else if (req.url === "/customer") {
     filePath = "./public/customer.html";
-    console.log("Displaying: ", filePath);
+    console.log("Displaying:", filePath);
   } else if (req.url === "/cashier") {
     filePath = "./public/cashier.html";
     console.log("Displaying:", filePath);
@@ -47,7 +51,7 @@ const server = http.createServer(function (req, res) {
   fs.readFile(filePath, function (error, data) {
     if (error) {
       res.writeHead(404);
-      res.write("Error: FIle not found ");
+      res.write("Error: File not found");
     } else {
       const contentType = getContentType(filePath);
       res.writeHead(200, { "Content-Type": contentType });
