@@ -3,12 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Customer</title>
+    <title>Product Viewing | Customer</title>
     <link rel="icon" type="image/png" href="/assets/images/initial_logo.png" />
     <link rel="stylesheet" href="./assets/css/customer.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/global.css" />
   </head>
   <body>
-    customer to
+    <div class="scanner-container">
+      <div id="reader"></div>
+      <div id="result">Waiting to scan...</div>
+      <div class="controls-container" id="controls"></div>
+    </div>
+    <script src="../node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+    <script src="./assets/js/customer.js"></script>
   </body>
 </html>

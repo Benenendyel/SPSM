@@ -23,7 +23,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border-radius: 12px;
+  border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 

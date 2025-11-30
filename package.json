@@ -13,5 +13,9 @@
   "type": "commonjs",
   "devDependencies": {
     "nodemon": "^3.1.11"
+  },
+  "dependencies": {
+    "html5-qrcode": "^2.3.8",
+    "sqlite3": "^5.1.7"
   }
 }
