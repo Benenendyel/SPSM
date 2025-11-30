@@ -29,9 +29,7 @@ const server = http.createServer(function (req, res) {
   ) {
     filePath = "./public" + req.url;
   } else if (req.url.startsWith("/node_modules/")) {
-    // Serve node_modules files
-    filePath = "." + req.url; // e.g., /node_modules/some-lib/somefile.js
-    console.log("Serving from node_modules:", filePath);
+    filePath = "." + req.url;
   } else if (req.url === "/") {
     filePath = "./public/index.html";
   } else if (req.url === "/customer") {
