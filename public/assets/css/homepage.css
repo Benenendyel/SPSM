@@ -78,7 +78,7 @@ body {
   border-style: none;
   color: var(--text-color);
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
   width: 100%;
   cursor: pointer;
   transition: opacity 200ms;
@@ -86,17 +86,29 @@ body {
 }
 
 .user_type button:nth-child(1) {
-  background-color: var(--main-bg-color);
+  background-color: var(--second-bg-color);
+  color: var(--text-white);
 }
 
 .user_type button:nth-child(2) {
-  background-color: var(--second-bg-color);
+  background-color: #475569;
+  color: var(--text-white);
 }
 
 .user_type button:nth-child(3) {
-  background-color: #3d7326;
+  background-color: var(--accent-color);
+  color: var(--main-bg-color);
+  font-weight: 600;
 }
 
-.user_type button:hover {
-  opacity: 90%;
+.user_type button:nth-child(1):hover {
+  background-color: var(--main-bg-color);
+}
+
+.user_type button:nth-child(2):hover {
+  background-color: var(--second-bg-color);
+}
+
+.user_type button:nth-child(3):hover {
+  background-color: #f59e0b;
 }

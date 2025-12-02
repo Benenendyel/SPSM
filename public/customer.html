@@ -9,11 +9,40 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/global.css" />
   </head>
   <body>
-    <div class="scanner-container">
-      <div id="reader"></div>
-      <div id="result">Waiting to scan...</div>
-      <div class="controls-container" id="controls"></div>
+    <div class="left-side">
+      <div class="scanner-container">
+        <div id="reader"></div>
+        <div id="result">Start scanning</div>
+      </div>
     </div>
+    <div class="right-side">
+      <div class="right-side-content">
+        <h2>Product Details</h2>
+        <div id="productInfo">
+          <!-- Product card will be inserted here -->
+          <div class="product-card">
+            <div class="product-image-container">
+              <img id="prodImage" src="" alt="Product" style="display: none;" />
+              <div id="noImage" class="no-image">No image available</div>
+            </div>
+            <div class="product-details">
+              <h3 id="prodName">—</h3> 
+              <div class="product-info-row">
+                <span class="label">Size:</span>
+                <span id="prodSize">—</span>
+              </div> 
+              <div class="product-info-row price-row">
+                <span class="label">Price:</span>
+                <span class="price">₱<span id="prodPrice">—</span></span>
+              </div> 
+            <div class="product-info-row description-row">
+              <span class="label">Description:</span>
+              <p id="prodDescription">Scan a product to view details</p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
     <script src="../node_modules/html5-qrcode/html5-qrcode.min.js"></script>
     <script src="./assets/js/customer.js"></script>
   </body>

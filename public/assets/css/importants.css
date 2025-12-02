@@ -1,5 +1,7 @@
 :root {
-  --main-bg-color: #529c36;
-  --second-bg-color: #684c32;
-  --text-color: #f8f8ee;
+  --main-bg-color: #1e293b; /* Navy */
+  --second-bg-color: #334155; /* Slate gray */
+  --accent-color: #fbbf24; /* Gold */
+  --text-color: #f1f5f9; /* Light gray */
+  --text-white: #ffffff;
 }

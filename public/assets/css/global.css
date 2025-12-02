@@ -1,3 +1,5 @@
+@import url("./importants.css");
+
 @font-face {
   font-family: "Quicksand";
   src: url("../fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
@@ -10,8 +12,10 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Quicksand";
+  color: var(--text-color);
 }
 
 body {
   height: 100vh;
+  background-color: var(--text-color);
 }
