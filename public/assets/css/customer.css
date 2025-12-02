@@ -121,7 +121,7 @@ body {
 #result {
   margin-top: 20px;
   padding: 18px;
-  background-color: var(--main-bg-color);
+  background-color: var(--second-bg-color);
   color: var(--text-white);
   border-radius: 8px;
   text-align: start;
@@ -172,7 +172,7 @@ body {
 .product-image-container {
   width: 100%;
   height: 250px;
-  background: white; /* White background for the container */
+  background: white;
   border-radius: 12px;
   margin-bottom: 25px;
   display: flex;

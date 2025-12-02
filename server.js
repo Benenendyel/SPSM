@@ -35,6 +35,7 @@ function handleScanRequest(req, res) {
 
       const cleanBarcode = String(barcode).trim();
 
+      // for debugging lang naman kung nakikita talaga
       console.log("=== SCAN REQUEST ===");
       console.log("Raw barcode:", JSON.stringify(barcode));
       console.log("Clean barcode:", cleanBarcode);

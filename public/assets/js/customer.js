@@ -1,4 +1,6 @@
 let scannedResult = null;
+const soundEffect = new Audio("../assets/audio/qrcode_sound_effect.mp3");
+
 const scanner = new Html5QrcodeScanner("reader", {
   fps: 20,
   qrbox: function (viewfinderWidth, viewfinderHeight) {
@@ -12,6 +14,8 @@ const scanner = new Html5QrcodeScanner("reader", {
 scanner.render(success, error);
 
 function success(result) {
+  soundEffect.play();
+
   scannedResult = result.trim();
   console.log("Scanned result:", scannedResult);
 
