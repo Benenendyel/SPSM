@@ -6,8 +6,77 @@
     <title>Cashier Terminal</title>
     <link rel="icon" type="image/png" href="./assets/images/initial_logo.png" />
     <link rel="stylesheet" type="text/css" href="/assets/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/cashier.css" />
   </head>
   <body>
-    cashier side
+    <div class="main-container">
+      <div class="header">
+        <h1>🛒 Cashier Terminal</h1>
+        <div id="clock"></div>
+      </div>
+
+      <div class="panels">
+        <div class="scanner-panel">
+          <div id="reader"></div>
+
+          <div class="search-container">
+            <input
+              type="text"
+              id="product-search"
+              placeholder="🔍 Search product by name or barcode..."
+            />
+          </div>
+
+          <div id="scan-status">Ready to scan or search...</div>
+        </div>
+
+        <div class="cart-panel">
+          <div class="cart-header">
+            <h2>Cart</h2>
+            <span class="cart-count"><span id="cart-count">0</span> items</span>
+          </div>
+
+          <div class="cart-items" id="cart-items">
+            <div class="empty-cart">
+              Cart is empty. Scan or search to add items.
+            </div>
+          </div>
+
+          <div class="total-section">
+            <div class="total-row">
+              <span>Total</span>
+              <span class="total-amount" id="total-amount">₱0.00</span>
+            </div>
+
+            <div class="actions">
+              <button class="btn-danger" onclick="voidTransaction()">
+                Void Transaction
+              </button>
+              <button class="btn-success" onclick="openCheckout()">
+                Checkout →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="checkout-modal">
+      <div class="modal-content">
+        <h2>Checkout</h2>
+        <div class="modal-total">
+          Total: <span id="modal-total">₱0.00</span>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-danger" onclick="closeCheckout()">Cancel</button>
+          <button class="btn-success" onclick="completeSale()">
+            Complete Sale
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+    <script src="./assets/js/cashier.js"></script>
   </body>
 </html>
