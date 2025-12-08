@@ -1,22 +1,20 @@
-// cashier.js — FINAL & WORKING (Same speed as customer.js + adds to cart)
-
 let lastScannedCode = "";
 let lastScanTime = 0;
-const COOLDOWN = 300; // Fast but prevents real duplicates
+const COOLDOWN = 3000;
 const soundEffect = new Audio("../assets/audio/qrcode_sound_effect.mp3");
 
 const cart = [];
 let total = 0;
 
-// SCANNER — EXACT SAME AS YOUR WORKING customer.js (this is the key!)
 const scanner = new Html5QrcodeScanner(
   "reader",
   {
     fps: 25,
     qrbox: function (viewfinderWidth, viewfinderHeight) {
-      // Your exact dynamic qrbox from customer.js → scans FAST
-      const size = Math.min(viewfinderWidth, viewfinderHeight) * 0.9;
-      return { width: size, height: size };
+      return {
+        width: Math.min(viewfinderWidth * 1, viewfinderHeight * 1),
+        height: Math.min(viewfinderWidth * 1, viewfinderHeight * 1),
+      };
     },
     showTorchButtonIfSupported: true,
     showZoomSliderIfSupported: true,
@@ -28,7 +26,6 @@ function onScanSuccess(decodedText) {
   const code = decodedText.trim();
   const now = Date.now();
 
-  // Short cooldown → feels instant
   if (code === lastScannedCode && now - lastScanTime < COOLDOWN) return;
   lastScannedCode = code;
   lastScanTime = now;
@@ -37,16 +34,13 @@ function onScanSuccess(decodedText) {
   soundEffect.play().catch(() => {});
 
   updateStatus(`Scanned: ${code}`);
-  addProductByBarcode(code); // Direct add (same as search bar)
+  addProductByBarcode(code);
 }
 
-function onScanError() {
-  /* ignore */
-}
+function onScanError() {}
 
 scanner.render(onScanSuccess, onScanError);
 
-// SEARCH BAR (already working)
 document.getElementById("product-search").addEventListener("keypress", (e) => {
   if (e.key !== "Enter") return;
   const query = e.target.value.trim();
@@ -56,7 +50,6 @@ document.getElementById("product-search").addEventListener("keypress", (e) => {
   addProductByBarcode(query);
 });
 
-// MAIN FUNCTION — Used by BOTH scanner and search bar
 async function addProductByBarcode(barcode) {
   try {
     const res = await fetch("/scan", {
@@ -93,7 +86,6 @@ async function addProductByBarcode(barcode) {
   }
 }
 
-// CART FUNCTIONS
 function calculateTotal() {
   total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
 }
@@ -161,7 +153,6 @@ function deleteItem(barcode) {
   }
 }
 
-// MODAL & STATUS
 function openCheckout() {
   if (cart.length === 0) return alert("Cart is empty!");
   document.getElementById("modal-total").textContent = `₱${total.toFixed(2)}`;

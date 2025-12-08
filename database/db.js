@@ -21,7 +21,8 @@ db.serialize(() => {
       name: "Zonrox",
       size: "1L",
       price: 199.0,
-      description: "A cloth cleaner thingy",
+      description:
+        "Zonrox Bleach delivers a 6-in-1 Total Clean for 99.9% antibacterial protection, whitening, deodorizing, elimination of disease-causing germs.",
       image: "zonrox.jpeg",
     },
     {
@@ -29,7 +30,8 @@ db.serialize(() => {
       name: "Baygon",
       size: "1L",
       price: 192.32,
-      description: "For spraying insects",
+      description:
+        "Proven to kill small and large cockroaches. · Kills fast and keeps on killing for up to 3 weeks. · Kills the eggs roaches carry.",
       image: "baygon.jpg",
     },
     {
@@ -37,8 +39,18 @@ db.serialize(() => {
       name: "Vicks",
       size: null,
       price: 450.5,
-      description: "For nose whaetevr",
+      description:
+        "Vicks is a popular brand of over-the-counter cold and flu remedies, known for its signature mentholated ointment, Vicks VapoRub, used to relieve coughs and minor aches by creating cooling vapors from ingredients like camphor, menthol, and eucalyptus oil.",
       image: "vicks.jpg",
+    },
+    {
+      id: "92919459824228",
+      name: "Pringles",
+      size: 0.74,
+      price: 75.0,
+      description:
+        "Pringles is an American brand of stackable potato-based chips invented by Procter & Gamble (P&G) in 1968 and marketed 'Pringle's Newfangled Potato Chips'.",
+      image: "pringles.jpg",
     },
   ];
 
